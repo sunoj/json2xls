@@ -1,5 +1,5 @@
-var json2xls = require('../lib/json2xls');
-var prep = json2xls.prepareJson;
+var json2xlsx = require('../lib/json2xlsx');
+var prep = json2xlsx.prepareJson;
 var arrayData = require('./arrayData.json');
 var objectData = require('./objectData.json');
 var weirdData = require('./weirdData');

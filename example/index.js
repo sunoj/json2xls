@@ -1,8 +1,8 @@
-var json2xls = require('../lib/json2xls');
+var json2xlsx = require('../lib/json2xlsx');
 var data = require('../spec/arrayData.json');
 var fs = require('fs');
 
-var xls = json2xls(data,{});
+var xlsx = json2xlsx(data,{});
 
 
-fs.writeFileSync('output.xlsx',xls, 'binary');
+fs.writeFileSync('output.xlsx',xlsx, 'binary');

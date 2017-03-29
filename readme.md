@@ -1,21 +1,19 @@
-json2xls
+node-json-xlsx
 ========
-
-[![Build Status](https://travis-ci.org/rikkertkoppes/json2xls.png?branch=master)](https://travis-ci.org/rikkertkoppes/json2xls)
 
 utility to convert json to a excel file, based on [Node-Excel-Export](https://github.com/functionscope/Node-Excel-Export)
 
 Installation
 ------------
 
-    npm install json2xls
+    npm install node-json-xlsx
 
 Usage
 ------
 
 Use to save as file:
 
-    var json2xls = require('json2xls');
+    var json2xlsx = require('node-json-xlsx');
     var json = {
         foo: 'bar',
         qux: 'moo',
@@ -23,38 +21,18 @@ Use to save as file:
         stux: new Date()
     }
 
-    var xls = json2xls(json);
+    var xlsx = json2xlsx(json);
 
-    fs.writeFileSync('data.xlsx', xls, 'binary');
+    fs.writeFileSync('data.xlsx', xlsx, 'binary');
 
-Or use as express middleware. It adds a convenience `xls` method to the response object to immediately output an excel as download.
-
-    var jsonArr = [{
-        foo: 'bar',
-        qux: 'moo',
-        poo: 123,
-        stux: new Date()
-    },
-    {
-        foo: 'bar',
-        qux: 'moo',
-        poo: 345,
-        stux: new Date()
-    }];
-
-    app.use(json2xls.middleware);
-
-    app.get('/',function(req, res) {
-        res.xls('data.xlsx', jsonArr);
-    });
 
 Options
 -------
 
-As a second parameter to `json2xls` or a third parameter to `res.xls`, a map of options can be passed:
+As a second parameter to `json2xlsx` or a third parameter to `res.xlsx`, a map of options can be passed:
 
-    var xls = json2xls(json, options);
-    res.xls('data.xlsx', jsonArr, options);
+    var xlsx = json2xlsx(json, options);
+    res.xlsx('data.xlsx', jsonArr, options);
 
 The following options are supported:
 
@@ -65,7 +43,7 @@ The following options are supported:
 
 Example:
 
-    var json2xls = require('json2xls');
+    var json2xlsx = require('node-json-xlsx');
     var json = {
         foo: 'bar',
         qux: 'moo',
@@ -74,13 +52,13 @@ Example:
     }
 
     //export only the field 'poo'
-    var xls = json2xls(json,{
+    var xlsx = json2xlsx(json,{
         fields: ['poo']
     });
 
     //export only the field 'poo' as string
-    var xls = json2xls(json,{
+    var xlsx = json2xlsx(json,{
         fields: {poo:'string'}
     });
 
-    fs.writeFileSync('data.xlsx', xls, 'binary');
+    fs.writeFileSync('data.xlsx', xlsx, 'binary');
