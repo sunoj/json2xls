@@ -58,7 +58,9 @@ Example:
 
     //export only the field 'poo' as string
     var xlsx = json2xlsx(json,{
-        fields: {poo:'string'}
+        fields: {poo:'string'},
+        fieldNames: ['Poo']
+
     });
 
     fs.writeFileSync('data.xlsx', xlsx, 'binary');
